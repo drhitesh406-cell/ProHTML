@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ProHTML Diagnose</title>
+<style>
+body{font:16px/1.45 -apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:20px;max-width:760px;margin:auto;background:#f2f2f7;color:#1c1c1e}
+h1{font-size:22px}button{font:inherit;padding:12px 20px;border:0;border-radius:12px;background:#0a84ff;color:#fff;font-weight:600}
+.r{background:#fff;border-radius:12px;padding:10px 14px;margin:8px 0;word-break:break-all}.ok{border-left:6px solid #30d158}.bad{border-left:6px solid #ff453a}.warn{border-left:6px solid #ff9f0a}
+small{color:#6c6c70;display:block}#sum{font-weight:700;margin:14px 0}
+</style></head><body>
+<h1>ProHTML — deployment check</h1>
+<p>Open this page from your deployed site (same folder as index.html), then tap the button. It checks every file the Custom Module maker and MCQ search need, and tells you exactly what is wrong.</p>
+<button id="go">Run check</button><div id="sum"></div><div id="out"></div>
+<script>
+const EXPECT={"index.html": {"size": 158481, "sha256": "1422514486a7fd6b4f96e3b1794c9dff57b8ffeb4bdbc335ca2335ea54490560"}, "custom-module.html": {"size": 15395763, "sha256": "a9e4ea179815f5bf396111ba9b70422ab478d2ee772e93d1674e9fe58b943b0f"}, "sw.js": {"size": 2130, "sha256": "ef2d22b65e012623bbf41f73a977007e23e35328ffff61c8665b26c5e1a91a92"}, "manifest.webmanifest": {"size": 475, "sha256": "3cafc190f66a87b06fb76dbc20385597c06acf421542c1ae8762a73f970b1300"}, "assets/mcq-search.js": {"size": 51681, "sha256": "c6599db0fa1f0b3430e23379b9ed7fd7495258f1883cfd87dbdf8f09f686a5de"}, "assets/mcq-search.css": {"size": 3537, "sha256": "8a649c68ca4a82dee4c884bcfc95c967b60dde98f03d4de3261f7fcaf3694bde"}, "assets/mcq-question-index.json": {"size": 2366663, "sha256": "b2518f2c1cf6f9d989667a91c77cfdae86f885d13d757832100fad4f52f1084b"}, "assets/mcq-qbank-hub-pyq-index.json": {"size": 104376, "sha256": "22e477144ba13e861daf8969ba3d5dcbe5f51e807715f20805bffc6caccfa687"}, "assets/bookmarks.js": {"size": 31213, "sha256": "16614e0dd3af532626bc03a7980541be4255aacb253f17fbafae423007508192"}, "assets/liquid-glass.js": {"size": 24891, "sha256": "729a22c122d9922ab25d3ef62ab7806f9c9d34d740eb13e7c15a2f59f04ebed6"}, "assets/liquid-glass.css": {"size": 23379, "sha256": "1bd0083d650409dba1707f5b0968c29659174fc12ad1a87da89f460c93dcf2fc"}, "assets/fonts/inter-latin-400-normal.woff2": {"size": 23664, "sha256": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc"}, "assets/fonts/inter-latin-700-normal.woff2": {"size": 24356, "sha256": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"}, "icon-192.png": {"size": 9526, "sha256": "7e37089829b910a62f78596c62c4bf108dcb15ae4c16de3d9551d173522b12e4"}, "icon-512.png": {"size": 17581, "sha256": "16f09e70116e1e4bb0bee4f69d33ada7da0f78d0b12441994f09fbb1ef335826"}};
+const SRC='https://raw.githubusercontent.com/sunday2212/WEBREPLITX5/7442d6f918a7469be0e0941eb39586220dc31ce7/frontend/quizx/Brain/';
+const out=document.getElementById('out'),sum=document.getElementById('sum');
+function row(cls,t,s){const d=document.createElement('div');d.className='r '+cls;d.innerHTML='<b>'+t+'</b>'+(s?'<small>'+s+'</small>':'');out.appendChild(d)}
+async function sha(buf){const h=await crypto.subtle.digest('SHA-256',buf);return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+document.getElementById('go').onclick=async()=>{
+ out.innerHTML='';sum.textContent='Checking…';let bad=0;
+ if(!location.protocol.startsWith('http')){row('bad','Opened as a file','Must be opened from your https://…github.io site (or http://localhost), not by double-clicking.');bad++}
+ if(!crypto.subtle){row('bad','Not a secure page','Use the https:// GitHub Pages address.');bad++}
+ for(const [f,e] of Object.entries(EXPECT)){
+  try{
+   const r=await fetch(f+'?chk='+Date.now(),{cache:'no-store'});
+   if(!r.ok){row('bad',f+' — HTTP '+r.status,'File is MISSING on your site. Upload it at exactly this path.');bad++;continue}
+   const buf=await r.arrayBuffer();
+   if(buf.byteLength!==e.size){row('bad',f+' — wrong size','Got '+buf.byteLength+' bytes, expected '+e.size+'. File is truncated, old, or modified. Re-upload it.');bad++;continue}
+   if((await sha(buf))!==e.sha256){row('bad',f+' — content differs','Same size but different bytes (line-ending/encoding change?). Re-upload the original.');bad++;continue}
+   row('ok',f+' — OK',(e.size/1024).toFixed(0)+' KB');
+  }catch(x){row('bad',f+' — '+x.message);bad++}
+ }
+ // service worker
+ try{const regs=await navigator.serviceWorker.getRegistrations();row(regs.length?'ok':'warn','Service worker: '+(regs.length?'registered':'not registered yet'),'Open index.html once online to register it.')}catch(x){row('warn','Service worker unavailable',x.message)}
+ // storage
+ try{await new Promise((res,rej)=>{const q=indexedDB.open('diag-test',1);q.onsuccess=()=>{q.result.close();indexedDB.deleteDatabase('diag-test');res()};q.onerror=()=>rej(q.error)});row('ok','Browser storage (IndexedDB) works')}catch(x){row('bad','IndexedDB blocked','Private mode or storage blocked — MCQ answers/cache cannot be saved.');bad++}
+ try{new DecompressionStream('gzip');row('ok','DecompressionStream supported')}catch(x){row('bad','Browser too old','Custom Module and PYQ lookup need a current Chrome/Safari/Edge.');bad++}
+ // upstream question source
+ try{
+  const r=await fetch(SRC+'file-manifest.json',{referrerPolicy:'no-referrer'});
+  if(r.ok)row('ok','Question source (raw.githubusercontent.com) reachable','HTTP '+r.status);
+  else{row('bad','Question source returned HTTP '+r.status,'MCQ search downloads question text from github.com/sunday2212/WEBREPLITX5. If this is 404/403 that repo is private, renamed or deleted — search cannot work on ANY site until its data is available again.');bad++}
+ }catch(x){row('bad','Question source unreachable','Network blocked (ad-blocker, DNS filter, VPN, offline). Allow raw.githubusercontent.com.');bad++}
+ sum.textContent=bad?('❌ '+bad+' problem(s) found — fix the red items above.'):'✅ Everything is correct. Hard-reload the site and use it.';
+};
+</script></body></html>

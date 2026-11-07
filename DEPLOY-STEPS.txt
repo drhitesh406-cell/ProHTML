@@ -1,0 +1,22 @@
+HOW TO DEPLOY ProHTML ON drhitesh406-cell (GitHub Pages)
+
+IMPORTANT: Upload ALL files, with the same folder structure. The two big ones are required:
+  custom-module.html            (15 MB)  -> Custom Module maker
+  assets/mcq-question-index.json (2.3 MB) -> MCQ search
+  assets/mcq-qbank-hub-pyq-index.json, assets/mcq-search.js, assets/mcq-search.css, assets/bookmarks.js ...
+index.html must be at the ROOT of the repo (not inside an extra "ProHTML" folder).
+
+BEST METHOD (no size/dotfile problems): GitHub Desktop or git
+  1. Create repo (e.g. ProHTML) on drhitesh406-cell, make it Public.
+  2. Extract this zip; open the extracted folder's CONTENTS (index.html, assets/, ...).
+  3. git init; git add -A; git commit -m "ProHTML"; git branch -M main
+     git remote add origin https://github.com/drhitesh406-cell/ProHTML.git ; git push -u origin main
+  4. Repo Settings -> Pages -> Deploy from a branch -> main / (root) -> Save. Wait 1-2 min.
+Website uploader works too, but it silently skips/limits big files and hidden files like .nojekyll.
+
+THEN: open https://drhitesh406-cell.github.io/<repo>/diagnose.html -> "Run check".
+Every line must be green. Then hard-reload index.html (pull down / Ctrl+Shift+R).
+
+RUN LOCALLY INSTEAD (always works): extract, open a terminal in the folder, run
+  python3 -m http.server 8000     then open http://localhost:8000/
+(Do not double-click index.html; file:// does not work.)

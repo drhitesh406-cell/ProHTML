@@ -1,0 +1,268 @@
+{
+  "release": "ProHTML QBank + PYQ code lookup v2",
+  "preparedDate": "2026-10-24",
+  "deploymentArchive": "ProHTML-MCQ-PYQ-Search-Update.zip",
+  "basedOnRepository": "https://github.com/drraj0697-coder/ProHTML.git",
+  "basedOnCommit": "aece418a2240a4caf4389c3cc29478cc7f1a2110",
+  "deployment": "Merge six runtime files into the existing repository; delete no existing paths.",
+  "runtimeFiles": [
+    {
+      "path": "index.html",
+      "action": "replace",
+      "bytes": 93935,
+      "sha256": "facb8694873b49fc7b0a6a7e56cbd68680d485f9dad4a02e72f8691bfa577969"
+    },
+    {
+      "path": "custom-module.html",
+      "action": "replace",
+      "bytes": 140350,
+      "sha256": "0d3ac75f5043d333771cdf637da82241d7e5c9524e92dbb88c3faff412d4396e"
+    },
+    {
+      "path": "sw.js",
+      "action": "replace",
+      "bytes": 1851,
+      "sha256": "920c04313ce0861ff6e6dbc665cd4ee43030056cf65cbd44ba3090800dfebdc8"
+    },
+    {
+      "path": "assets/mcq-search.css",
+      "action": "add",
+      "bytes": 3537,
+      "sha256": "8a649c68ca4a82dee4c884bcfc95c967b60dde98f03d4de3261f7fcaf3694bde"
+    },
+    {
+      "path": "assets/mcq-search.js",
+      "action": "add",
+      "bytes": 43140,
+      "sha256": "d5a7006d6229f736e7d96f569bc593c0089e4fac0350405a9a1a75d79af0d1dc"
+    },
+    {
+      "path": "assets/mcq-question-index.json",
+      "action": "add",
+      "bytes": 1147271,
+      "sha256": "96f07201d80485cec43a102df51f99c2938772346ba373e9aad9b28ba7385122"
+    }
+  ],
+  "database": {
+    "source": {
+      "base": "https://raw.githubusercontent.com/sunday2212/WEBREPLITX5/7442d6f918a7469be0e0941eb39586220dc31ce7/frontend/quizx/Brain/",
+      "prefix": "Marrow/Edition 8 qBank/",
+      "revision": "7442d6f918a7469be0e0941eb39586220dc31ce7",
+      "prefixes": [
+        "Marrow/Edition 8 qBank/",
+        "Marrow/Previous Year Question Papers/"
+      ],
+      "selectionPolicy": "existing-qbank-first; dedicated-pyq-codes-open-pyq"
+    },
+    "subjects": 19,
+    "topicFiles": 1151,
+    "questionRecords": 21898,
+    "uniqueQuestionCodes": 19991,
+    "recordsWithoutUsableCode": 400,
+    "codesWithDifferentContentVersions": 52,
+    "pyqPaperFiles": 322,
+    "pyqQuestionRecords": 5522,
+    "pyqUniqueCodes": 5065,
+    "qbankTopicFiles": 829,
+    "qbankQuestionRecords": 16376,
+    "qbankUniqueCodes": 16373,
+    "qbank": {
+      "topicFiles": 829,
+      "records": 16376,
+      "uniqueCodes": 16373,
+      "subjects": 19
+    },
+    "pyq": {
+      "paperFiles": 322,
+      "records": 5522,
+      "uniqueCodes": 5065,
+      "newDedicatedCodes": 3618,
+      "sharedQbankCodes": 1447,
+      "recordsWithoutUsableCodes": 400
+    },
+    "allRecordsHaveFourOptions": true,
+    "invalidAnswerRecords": 0,
+    "differentContentVersionSharedCodes": 52,
+    "indexedContentVersions": 20043,
+    "identicalCodedRecordsCollapsedInIndex": 1455,
+    "bankPayloadBundled": false,
+    "sharedCodePolicy": "Preserve original QBank primary match and answer signature; dedicated PYQ-only codes open their matching paper directly.",
+    "syntheticCodesInvented": false
+  },
+  "preservation": {
+    "originalTrackedFiles": 16,
+    "allOriginalTrackedFilesPresent": true,
+    "removedOriginalPaths": [],
+    "originalFilesByteUnchanged": 12,
+    "modifiedOriginalRuntimePaths": [
+      "index.html",
+      "custom-module.html",
+      "sw.js"
+    ],
+    "modifiedLocalQaOnlyPaths": [
+      "tests/browser.cjs"
+    ],
+    "allOriginalQbankPrimaryMappingsAndAnswerSignaturesUnchanged": true,
+    "lookupAnswerNamespaceAndCacheSchemaUnchangedFromV1": true,
+    "explanationZoomFunctionByteUnchanged": true,
+    "makerChangesLimitedToRetainingAndDisplayingQuestionId": true,
+    "normalLibrarySchemaUnchanged": true,
+    "qaAndFixturesExcludedFromDeploymentArchive": true,
+    "originalFileHashes": [
+      {
+        "path": "LIQUID-GLASS-UPGRADE.md",
+        "originalSha256": "d4036e71e91347fa5b4d889b7e1cf95fbd4ec214e7265b73b52401d68d932c40",
+        "updatedSha256": "d4036e71e91347fa5b4d889b7e1cf95fbd4ec214e7265b73b52401d68d932c40"
+      },
+      {
+        "path": "README.md",
+        "originalSha256": "d88f774c1bbd65eba9b8c1bcacc566f2718aef793955c733b7bd5a316f700804",
+        "updatedSha256": "d88f774c1bbd65eba9b8c1bcacc566f2718aef793955c733b7bd5a316f700804"
+      },
+      {
+        "path": "THIRD-PARTY-NOTICES.md",
+        "originalSha256": "9dcfe87534631be28465925cba688a39f0a6a78e98399a45fa818175960077c8",
+        "updatedSha256": "9dcfe87534631be28465925cba688a39f0a6a78e98399a45fa818175960077c8"
+      },
+      {
+        "path": "assets/liquid-glass.css",
+        "originalSha256": "1bd0083d650409dba1707f5b0968c29659174fc12ad1a87da89f460c93dcf2fc",
+        "updatedSha256": "1bd0083d650409dba1707f5b0968c29659174fc12ad1a87da89f460c93dcf2fc"
+      },
+      {
+        "path": "assets/liquid-glass.js",
+        "originalSha256": "729a22c122d9922ab25d3ef62ab7806f9c9d34d740eb13e7c15a2f59f04ebed6",
+        "updatedSha256": "729a22c122d9922ab25d3ef62ab7806f9c9d34d740eb13e7c15a2f59f04ebed6"
+      },
+      {
+        "path": "custom-module.html",
+        "originalSha256": "a3f996e6ff30ce065408bc6472f162ab2b4febd350c435ac554630eb9d145b1e",
+        "updatedSha256": "0d3ac75f5043d333771cdf637da82241d7e5c9524e92dbb88c3faff412d4396e"
+      },
+      {
+        "path": "docs/liquid-glass-testing.md",
+        "originalSha256": "1804187d01e99ee28962e6059c18ef925d64b283da24c2e8c56df6f9b25140bc",
+        "updatedSha256": "1804187d01e99ee28962e6059c18ef925d64b283da24c2e8c56df6f9b25140bc"
+      },
+      {
+        "path": "docs/upgrade-manifest.json",
+        "originalSha256": "9da77578e51a77afa3cceb092e511c74b80ba7b76b907accb50c0ed4d58b5563",
+        "updatedSha256": "9da77578e51a77afa3cceb092e511c74b80ba7b76b907accb50c0ed4d58b5563"
+      },
+      {
+        "path": "icon-180.png",
+        "originalSha256": "99ba07f62ff61cfbb003ab791fc3a59c1ff0786d659969361010e2fc856ccf23",
+        "updatedSha256": "99ba07f62ff61cfbb003ab791fc3a59c1ff0786d659969361010e2fc856ccf23"
+      },
+      {
+        "path": "icon-192.png",
+        "originalSha256": "7e37089829b910a62f78596c62c4bf108dcb15ae4c16de3d9551d173522b12e4",
+        "updatedSha256": "7e37089829b910a62f78596c62c4bf108dcb15ae4c16de3d9551d173522b12e4"
+      },
+      {
+        "path": "icon-512.png",
+        "originalSha256": "16f09e70116e1e4bb0bee4f69d33ada7da0f78d0b12441994f09fbb1ef335826",
+        "updatedSha256": "16f09e70116e1e4bb0bee4f69d33ada7da0f78d0b12441994f09fbb1ef335826"
+      },
+      {
+        "path": "index.html",
+        "originalSha256": "ac901f699fc86cb58b110d569798dc05891b6cc034b0eca1d9a3c75b4936a65c",
+        "updatedSha256": "facb8694873b49fc7b0a6a7e56cbd68680d485f9dad4a02e72f8691bfa577969"
+      },
+      {
+        "path": "licenses/liquid_glass_widgets-LICENSE.txt",
+        "originalSha256": "bd51c3772db92289b777325bbb19583f10d7fece48b956667db0b826237c46a0",
+        "updatedSha256": "bd51c3772db92289b777325bbb19583f10d7fece48b956667db0b826237c46a0"
+      },
+      {
+        "path": "manifest.webmanifest",
+        "originalSha256": "3cafc190f66a87b06fb76dbc20385597c06acf421542c1ae8762a73f970b1300",
+        "updatedSha256": "3cafc190f66a87b06fb76dbc20385597c06acf421542c1ae8762a73f970b1300"
+      },
+      {
+        "path": "sw.js",
+        "originalSha256": "164f5f128a0aab1c25ee32948362125098870a4c481e53059f6050a0e2941e63",
+        "updatedSha256": "920c04313ce0861ff6e6dbc665cd4ee43030056cf65cbd44ba3090800dfebdc8"
+      },
+      {
+        "path": "tests/browser.cjs",
+        "originalSha256": "d12f6dbd14e448556ca1f3e9894f181cc82f3b60ae48b3029aca2cbc5c2c0537",
+        "updatedSha256": "df1cb41e97bd9240e4c7ff34b83c8500bc010fcc4d0cbb468204ebbb76f426b3"
+      }
+    ]
+  },
+  "verification": {
+    "existingMcqFeatureChecks": {
+      "PASS": 101
+    },
+    "additionalPyqChecks": {
+      "PASS": 30
+    },
+    "existingReaderChecks": {
+      "PASS": 61,
+      "SKIP": 1
+    },
+    "totalPassingAutomatedChecks": 192,
+    "explicitSkip": "Installed-PWA offline shell test on Linux WebKit: runner Cache API limitation. Cached MCQ/PYQ offline lookup on WebKit passed.",
+    "unmockedPyqLookupsOnCurrentVersion": [
+      {
+        "engine": "chromium",
+        "status": "PASS",
+        "code": "MF5092",
+        "sourcePath": "Marrow/Previous Year Question Papers/100_Community_Medicine_Ini-Cet_2022.json",
+        "subject": "PYQ",
+        "options": 4,
+        "correct": 0,
+        "feedback": "Correct. You chose A."
+      },
+      {
+        "engine": "webkit",
+        "status": "PASS",
+        "code": "MF5092",
+        "sourcePath": "Marrow/Previous Year Question Papers/100_Community_Medicine_Ini-Cet_2022.json",
+        "subject": "PYQ",
+        "options": 4,
+        "correct": 0,
+        "feedback": "Correct. You chose A."
+      }
+    ],
+    "unmockedQbankLookupsDuringInitialImplementation": [
+      {
+        "engine": "chromium",
+        "status": "PASS",
+        "code": "MB1838",
+        "question": "The urogenital ridge develops from which layer?",
+        "choices": 4
+      },
+      {
+        "engine": "webkit",
+        "status": "PASS",
+        "code": "MB1838",
+        "question": "The urogenital ridge develops from which layer?",
+        "choices": 4
+      }
+    ],
+    "uncaughtApplicationJavaScriptErrors": 0,
+    "inlineScriptsSyntaxChecked": {
+      "index.html": 2,
+      "custom-module.html": 1,
+      "decodedCustomModuleRunner": 1
+    },
+    "externalScriptsSyntaxChecked": [
+      "assets/mcq-search.js",
+      "sw.js"
+    ],
+    "physicalDeviceOrNativeStoreCertification": false
+  },
+  "answerStorage": "Browser localStorage: hr.mcq.answer.v1.<CODE>.<SIGNATURE>",
+  "textCache": "IndexedDB: prohtml-mcq-lookup-v1 / questions",
+  "serviceWorkerCache": "html-reader-mcq-pyq-search-v2",
+  "limitations": [
+    "400 source PYQ records have no usable question_id and cannot be searched by code; none were invented.",
+    "First-time lookup requires internet, permitted Network access and availability of the existing pinned public source.",
+    "External question/explanation images are not bundled or guaranteed offline.",
+    "No cloud sync; local browser storage restrictions or clearing site data can remove saved answers.",
+    "Older saved modules without question IDs are left intact, not retroactively rewritten.",
+    "This is an update archive, not a standalone app or native-store submission."
+  ]
+}
