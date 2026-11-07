@@ -1,11 +1,11 @@
 'use strict';
 // Cache names only change the app shell. IndexedDB and localStorage are untouched.
-const V = 'html-reader-mcq-bookmarks-v30';
+const V = 'html-reader-mcq-bookmarks-v31';
 const SHELL = [
-  './', 'index.html', 'custom-module.html', 'manifest.webmanifest',
+  './', 'index.html', 'manifest.webmanifest',
   'icon-180.png', 'icon-192.png', 'icon-512.png',
   'assets/liquid-glass.css', 'assets/liquid-glass.js',
-  'assets/mcq-search.css', 'assets/mcq-search.js', 'assets/bookmarks.js', 'assets/mcq-question-index.json', 'assets/mcq-qbank-hub-pyq-index.json',
+  'assets/mcq-search.css', 'assets/mcq-search.js', 'assets/bookmarks.js',
   'assets/fonts/inter-latin-400-normal.woff2', 'assets/fonts/inter-latin-700-normal.woff2'
 ];
 self.addEventListener('install', event => {
@@ -20,6 +20,9 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const request = event.request, url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== location.origin || !/^https?:$/.test(url.protocol)) return;
+  // Large files (the 15 MB Custom Module maker and the JSON indexes) go straight to the network.
+  // Teeing/caching them inside the worker makes Safari fail with "Load failed".
+  if (/\/custom-module\.html$/.test(url.pathname) || /\.json$/.test(url.pathname)) return;
   event.respondWith((async () => {
     try {
       const response = await fetch(request);
