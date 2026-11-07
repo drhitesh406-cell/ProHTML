@@ -1,0 +1,84 @@
+{
+  "aiClassified": {
+    "method": "deterministic rules; no model, no network",
+    "pyqExtrasWithTopic": 3855,
+    "script": "scripts/classify-mcq-tags.py",
+    "tagExtrasWithSubject": 872,
+    "tagExtrasWithTopic": 814
+  },
+  "embeddedBase64Chars": 14786668,
+  "embeddedGzipBytes": 11089999,
+  "embeddedQuestionRecords": 16376,
+  "embeddedSha256": "3fb4456c06a19da90398aba9334f54ed5c5ef687aad69c05c67908b1041426d2",
+  "mcqCodeIndexCodes": 43179,
+  "mcqCodeIndexTopics": 1718,
+  "perTag": {
+    "AIIMS": 795,
+    "Clinical": 4861,
+    "Controversial": 1,
+    "Criteria": 324,
+    "DrugOfChoice": 345,
+    "Eponyms": 443,
+    "GIFBased": 46,
+    "ImageBased": 2819,
+    "Instruments": 214,
+    "InvestigationsOfChoice": 215,
+    "Numbers": 358,
+    "Problems": 130,
+    "RecentUpdates": 68,
+    "Slides": 764,
+    "TheCommons": 800,
+    "recentNEET": 705
+  },
+  "pyqExtras": 4391,
+  "pyqExtrasByTag": {
+    "AIIMS": 3029,
+    "recentNEET": 1362
+  },
+  "pyqExtrasMultiTag": 2425,
+  "qbankHubRevision": "cfb6dddbf0c4d760080792d953e0582e0e9e6ee7",
+  "qbankHubSha256": "c3ee2697542afacd49d3931c71ec05f010190394dd2196252ff0c0efc132f76a",
+  "qbankTopicFiles": 829,
+  "rules": {
+    "aiTags": "13 non-exam tags assigned by rules over the whole pool and unioned with the Mini Test tags; #ImageBased/#GIFBased are objective (image present / GIF URL)",
+    "examTags": "QBank Hub Marrow PYQ exam_family only; #recentNEET/#AIIMS/#RecentUpdates are never assigned by the classifier",
+    "fmge": "tag evidence only; no FMGE question is emitted",
+    "pyqExtras": "subject + AI topic when placed (admitted for that subject/topic); otherwise the selected subject with ALL topics selected; inclusive tag match (ANY of its tags, including #recentNEET/#AIIMS, admits it)",
+    "tagOnlyExtras": "subject + AI topic when the classifier placed the question (admitted for that subject/topic); otherwise all 19 subjects in scope only, and only when its tag is selected",
+    "web5Pyq": "removed entirely"
+  },
+  "schema": 1,
+  "tagAssignments": 3018,
+  "tagExtrasByTag": {
+    "Clinical": 301,
+    "Criteria": 37,
+    "DrugOfChoice": 43,
+    "Eponyms": 37,
+    "GIFBased": 1,
+    "ImageBased": 512,
+    "Instruments": 58,
+    "InvestigationsOfChoice": 37,
+    "Numbers": 88,
+    "Problems": 26,
+    "RecentUpdates": 87,
+    "Slides": 240,
+    "TheCommons": 45
+  },
+  "tagOnlyExtras": 872,
+  "taggedQbankCodes": 10574,
+  "universe": {
+    "distinctQuestions": 21511,
+    "rawRecords": 21639,
+    "tagAssignments": 22130,
+    "tagDegree": {
+      "0": 7624,
+      "1": 7864,
+      "2": 4120,
+      "3": 1601,
+      "4": 287,
+      "5": 15
+    },
+    "taggedQuestions": 13887
+  },
+  "web5Revision": "7442d6f918a7469be0e0941eb39586220dc31ce7"
+}

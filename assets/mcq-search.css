@@ -1,0 +1,29 @@
+/* MCQ lookup extends the existing glass library without changing its status filters. */
+.mcq-filter-row { display:flex; align-items:flex-start; gap:10px; margin:0 2px 14px; }
+.mcq-filter-row .chips { flex:1; min-width:0; margin:0; }
+.mcq-search-trigger { flex:0 0 44px; width:44px; height:44px; min-width:44px; margin-top:-3px; color:var(--accent); border:1px solid var(--lg-edge,var(--line)); background:var(--lg-surface,var(--card)); box-shadow:var(--lg-shadow); }
+.mcq-search-trigger .i { width:21px; height:21px; }
+.mcq-search-trigger:hover { background:var(--lg-hover,var(--pill-on)); }
+.mcq-search-trigger:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+#mcqSearchOverlay { position:fixed; inset:0; z-index:96; }
+#mcqSearchOverlay[hidden] { display:none; }
+.mcq-search-backdrop { position:absolute; inset:0; background:rgba(20,25,45,.20); -webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px); }
+.mcq-search-panel { position:fixed; box-sizing:border-box; overflow:auto; overscroll-behavior:contain; padding:20px; border:1px solid var(--lg-edge,var(--line)); border-radius:26px; background:var(--lg-menu,var(--card)); color:var(--ink); box-shadow:var(--lg-popup-shadow,var(--shadow)); -webkit-backdrop-filter:blur(26px) saturate(160%); backdrop-filter:blur(26px) saturate(160%); animation:mcq-search-in .18s ease-out; }
+.mcq-search-heading { display:flex; gap:12px; justify-content:space-between; align-items:flex-start; margin-bottom:19px; }
+.mcq-search-heading .eyebrow { margin:0 0 5px; color:var(--mut); font-size:10px; letter-spacing:.14em; }
+.mcq-search-heading h2 { margin:0; font-size:21px; line-height:1.2; letter-spacing:-.025em; }
+.mcq-search-close { flex:none; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; font:27px/1 var(--ui); color:var(--mut); background:var(--lg-hover,var(--pill-on)); }
+#mcqSearchForm label { display:block; margin:0 0 7px; font-weight:600; font-size:14px; }
+.mcq-search-entry { display:flex; gap:8px; align-items:stretch; }
+#mcqCode { width:0; min-width:0; flex:1; height:48px; border:1px solid var(--line); border-radius:13px; padding:0 12px; font:17px var(--ui); color:var(--ink); background:var(--card); text-transform:uppercase; -webkit-user-select:text; user-select:text; }
+#mcqCode::placeholder { text-transform:none; font-size:14px; color:var(--mut); opacity:1; }
+#mcqFind { flex:none; min-height:48px; padding:0 13px; border-radius:13px; font:600 14px var(--ui); background:var(--dark-btn); color:var(--dark-btn-ink); }
+#mcqFind:disabled { opacity:.6; cursor:wait; }
+#mcqSearchStatus { min-height:20px; margin:12px 0 0; font-size:14px; line-height:1.4; overflow-wrap:anywhere; }
+#mcqSearchStatus.is-error { color:var(--bad,#c0392b); }
+#mcqSearchHint { margin:9px 0 0; color:var(--mut); font-size:12px; line-height:1.5; }
+@keyframes mcq-search-in { from { opacity:0; transform:translateY(5px) scale(.98); } to { opacity:1; transform:none; } }
+@media (max-width:350px) { .mcq-search-panel { padding:16px; border-radius:23px; } .mcq-search-heading h2 { font-size:19px; } #mcqFind { padding-inline:10px; font-size:13px; } }
+@media (prefers-reduced-motion:reduce) { .mcq-search-panel { animation:none; } }
+@media (forced-colors:active) { .mcq-search-panel { background:Canvas; color:CanvasText; border:1px solid CanvasText; } #mcqFind,.mcq-search-trigger,#mcqCode { border:1px solid ButtonText; } }
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) { .mcq-search-panel { background:var(--bg); } }
