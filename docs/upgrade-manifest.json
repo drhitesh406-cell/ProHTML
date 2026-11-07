@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-24",
+  "reader_repository": "https://github.com/drraj0697-coder/ProHTML",
+  "reader_baseline_revision": "b366954da9d57fa89dc47a06a813e93300b7cf49",
+  "uploaded_index_sha256": "48cff86c0222322ea4e3b25355320de82175b2d15fb4e85bcd85ebe41e3613f8",
+  "reference_repository": "https://github.com/sdegenaar/liquid_glass_widgets",
+  "reference_revision": "5d2859796ef0f6964e2fdf25962b033eede27814",
+  "original_tracked_files_present": 8,
+  "deleted_original_files": [],
+  "original_files": [
+    {
+      "path": "README.md",
+      "status": "unchanged",
+      "baseline_sha256": "d88f774c1bbd65eba9b8c1bcacc566f2718aef793955c733b7bd5a316f700804",
+      "updated_sha256": "d88f774c1bbd65eba9b8c1bcacc566f2718aef793955c733b7bd5a316f700804"
+    },
+    {
+      "path": "custom-module.html",
+      "status": "unchanged",
+      "baseline_sha256": "a3f996e6ff30ce065408bc6472f162ab2b4febd350c435ac554630eb9d145b1e",
+      "updated_sha256": "a3f996e6ff30ce065408bc6472f162ab2b4febd350c435ac554630eb9d145b1e"
+    },
+    {
+      "path": "icon-180.png",
+      "status": "unchanged",
+      "baseline_sha256": "99ba07f62ff61cfbb003ab791fc3a59c1ff0786d659969361010e2fc856ccf23",
+      "updated_sha256": "99ba07f62ff61cfbb003ab791fc3a59c1ff0786d659969361010e2fc856ccf23"
+    },
+    {
+      "path": "icon-192.png",
+      "status": "unchanged",
+      "baseline_sha256": "7e37089829b910a62f78596c62c4bf108dcb15ae4c16de3d9551d173522b12e4",
+      "updated_sha256": "7e37089829b910a62f78596c62c4bf108dcb15ae4c16de3d9551d173522b12e4"
+    },
+    {
+      "path": "icon-512.png",
+      "status": "unchanged",
+      "baseline_sha256": "16f09e70116e1e4bb0bee4f69d33ada7da0f78d0b12441994f09fbb1ef335826",
+      "updated_sha256": "16f09e70116e1e4bb0bee4f69d33ada7da0f78d0b12441994f09fbb1ef335826"
+    },
+    {
+      "path": "index.html",
+      "status": "updated",
+      "baseline_sha256": "d2fbb0d3b30b5e28f44217f08c54b9174df409c1267e4642c37fffa4345ff5e1",
+      "updated_sha256": "4dff6b30fbacb1af80c364820146aec2a48114a7d9daeb04b023399de574141d"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "status": "unchanged",
+      "baseline_sha256": "3cafc190f66a87b06fb76dbc20385597c06acf421542c1ae8762a73f970b1300",
+      "updated_sha256": "3cafc190f66a87b06fb76dbc20385597c06acf421542c1ae8762a73f970b1300"
+    },
+    {
+      "path": "sw.js",
+      "status": "updated",
+      "baseline_sha256": "f6de675e743422b7759f19f68711f83f6ff2433f114d7e217aa4d528d771dfb3",
+      "updated_sha256": "cff7e2efd0b68ec8a813b4b4ee480590d1db1b65e04a0b2bb09288b9b034bba8"
+    }
+  ],
+  "new_files": [
+    {
+      "path": "LIQUID-GLASS-UPGRADE.md",
+      "sha256": "d4036e71e91347fa5b4d889b7e1cf95fbd4ec214e7265b73b52401d68d932c40"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "sha256": "9dcfe87534631be28465925cba688a39f0a6a78e98399a45fa818175960077c8"
+    },
+    {
+      "path": "assets/liquid-glass.css",
+      "sha256": "1bd0083d650409dba1707f5b0968c29659174fc12ad1a87da89f460c93dcf2fc"
+    },
+    {
+      "path": "assets/liquid-glass.js",
+      "sha256": "729a22c122d9922ab25d3ef62ab7806f9c9d34d740eb13e7c15a2f59f04ebed6"
+    },
+    {
+      "path": "docs/liquid-glass-testing.md",
+      "sha256": "1804187d01e99ee28962e6059c18ef925d64b283da24c2e8c56df6f9b25140bc"
+    },
+    {
+      "path": "licenses/liquid_glass_widgets-LICENSE.txt",
+      "sha256": "bd51c3772db92289b777325bbb19583f10d7fece48b956667db0b826237c46a0"
+    },
+    {
+      "path": "tests/browser.cjs",
+      "sha256": "d12f6dbd14e448556ca1f3e9894f181cc82f3b60ae48b3029aca2cbc5c2c0537"
+    }
+  ],
+  "storage_schema_unchanged": {
+    "database": "html-reader-pwa",
+    "version": 1,
+    "store": "files",
+    "keyPath": "id"
+  }
+}
